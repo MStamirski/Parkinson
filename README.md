@@ -10,12 +10,12 @@ In first notebook I conducted detailed datasets analysis. It was hindered becaus
 
 Then I examined different variants of feature selection, based on decreasing correlation with predicted label.
 
-My idea to improve the results was to divide features into subsets, where predictions would be made using separately trained models. I implemented it by unsupervised clustering with KMeans model, chosen after many trials (not included in this repository). 
+My idea to improve the results was to divide features into subsets, where predictions would be made using separately trained regression models. I implemented it by unsupervised clustering with KMeans model, chosen after many trials (not included in this repository). 
 
-Final set of optimal parameters - i.e. number of features and number of clusters for each label prediction - was found experimentally, by evaluating many changing combinations. It improved initial sMAPE of about 10 points.
+Final set of optimal parameters - i.e. number of features and number of clusters for each label prediction - was found experimentally, by evaluating many changing combinations. It improved initial sMAPE of about 8 points.
 
 * notebook "project 2"
 
-In second notebook I normalized features values. Then I performed a dimensionality reduction using model LocallyLinearEmbedding. Optimal number of components was determined experimentally. It improved sMAPE before clustering of about 4 points. After applying optimal number of clusters it decreased of another 4 points.
+In second notebook I normalized features values. Then I performed a dimensionality reduction, using model LocallyLinearEmbedding. Optimal number of components was determined experimentally. It improved sMAPE before clustering of about 4 points. After applying optimal number of clusters it decreased of another 4 points.
 
-At the end I modified function which divides features to clusters, taking into account, that validation (and testing) data wouldn't participate in clusters calculation. The clusters will be established on the basis of training dataset, and validation data assignment to clusters should be predicted. This assumptions introduced an error of cluster prediction, which, unfortunatelly, removed the posotive impact of clustering to final sMAPE.
+At the end I modified function which divides features to clusters, taking into account, that validation (and testing) data wouldn't participate in clusters calculation. The clusters will be established on the basis of training dataset, and validation data assignment to clusters should be predicted. This assumptions introduced an error of cluster prediction, which, unfortunatelly, removed the positive impact of clustering to final sMAPE.
